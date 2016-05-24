@@ -1,0 +1,1 @@
+web: python runserver.py --port ${PORT} & python worker.py

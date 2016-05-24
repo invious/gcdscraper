@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flask Multiple Upload</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1>Georgia
+Corporations Division</h1>
+
+<h2>Business Search Scraper</h2>
+
+This was written to automate the extraction of key infromation from annual filing documents found by searching business names on  <a href="https://ecorp.sos.ga.gov/BusinessSearch/">Georgia
+Corporations Division Business Search</a>.<p>
+
+Select an excel file containing a list of business names to scrape [A2-] by dragging
+and dropping it or selecting using the browse button. Please be patient -- when your results are ready you will be prompted to download
+an excel containing your results<p>
+
+
+<hr><p>
+
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <strong>Files:</strong><br>
+    Select files OR drag them into the box below.
+    <input id="file-picker" type="file" name="file" accept=".xlsx" multiple><p>
+
+    <div id="dropbox">
+        Drag and Drop Files Here
+    </div><p>
+
+    <fieldset id="progress" style="display: none">
+        <legend>Files Progress</legend>
+
+        <div class="progress-trough">
+            <div id="progress-bar" class="progress-bar">0%</div>
+        </div>
+    </fieldset><p>
+
+    <input type="submit" value="Upload!" id="upload-button">
+</form>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/uploadr.js') }}"></script>
+
+<hr><p>
+
+Goal of Deliverable<div>-Client is looking for untapped markets for lead generation in commercial real estate brokerage space.&nbsp;</div><div>-Client currently goes onto a states corporation division website (ex: <a href="https://ecorp.sos.ga.gov/" target="_blank">https://ecorp.sos.ga.gov/</a> ) . First, he types in address of a potential commercial real estate property (picture #1). Next, he goes to filing history (picture #3). Next, he downloads each PDF associated with the corporation (very time consuming). Lastly, he goes into each PDF to find<b> 4 main pieces of information (LLC name, address of property, president of LLC, and president's contact information)&nbsp;</b></div><div>-This is time consuming for the client.</div><div><div>-The client has two main goals for deliverable which we will call "base" case and "advanced" case.</div><div><br></div><div>Base - Client would like a way to scrape all PDFs associated with corporations that are of interest to him (either a complete scrape of the website or have client provide the corporations that are of interest)</div></div><div>Advanced - After scraping PDFs off the website, he would like a spread sheet that contains the 4 main pieces of information (bolded above) so that he can have easily accessible data for lead generation.&nbsp;</div>
+<p>
+
+</body>
+</html>
